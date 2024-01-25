@@ -18,6 +18,8 @@ h1 {
     background-color: white;
     margin: auto;
     border-radius: 6px;
+    padding: 16px;
+    box-shadow: 0 0 4px #00000059;
 }
 
 .task {
