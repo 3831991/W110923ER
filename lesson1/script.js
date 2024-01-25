@@ -7,7 +7,7 @@ function showMessage() {
 }
 
 function welcomeName() {
-    var name = "אלישיב";
+    var name = document.getElementById("userName").value;
 
     alert("ברוך הבא " + name);
 }
