@@ -11,3 +11,9 @@ function welcomeName() {
 
     alert("ברוך הבא " + name);
 }
+
+function multi50() {
+    var n = document.getElementById("num").value;
+
+    alert(n * 50);
+}
