@@ -35,7 +35,7 @@ h2 {
 }
 
 button {
-    background-color: #3f51b5;
+    background-color: #3fb549;
     color: white;
     padding: 8px 12px;
     border-radius: 6px;
@@ -43,7 +43,7 @@ button {
 }
 
 button:hover {
-    background-color: #a784e3;
+    filter: brightness(1.2);
 }
 
 input, select {
