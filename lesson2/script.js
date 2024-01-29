@@ -19,5 +19,9 @@ function plus() {
 }
 
 function plusResult() {
+    const n1 = +document.getElementById("num5").value;
+    const n2 = +document.getElementById("num6").value;
+    const result = n1 + n2;
+
     
 }
