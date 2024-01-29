@@ -10,3 +10,7 @@ function multi() {
 
     document.getElementById("output1").innerHTML = n1 * n2;
 }
+
+function plus() {
+    
+}
