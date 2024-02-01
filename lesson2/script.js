@@ -21,7 +21,9 @@ function plus() {
 function plusResult() {
     const n1 = +document.getElementById("num5").value;
     const n2 = +document.getElementById("num6").value;
-    const result = n1 + n2;
-
+    // const sum = n1 + n2;
+    // const result = n1 + " + " + n2 + " = " + sum;
+    const result = `${n1} + ${n2} = ${n1 + n2}`;
     
+    document.getElementById("output3").innerHTML = result;
 }

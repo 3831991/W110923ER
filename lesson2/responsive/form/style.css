@@ -1,0 +1,80 @@
+/* ייבוא גופן ממקור חיצוני */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600;700;900&display=swap');
+
+body {
+    /* כיוון האתר מימין לשמאל */
+    direction: rtl;
+    /* שינוי גופן לאתר */
+    font-family: 'Rubik', sans-serif;
+    /* רקע */
+    /* background-color: #9c27b0; */
+    background-image: url(https://cdn.foodbox.co.il/wp-content/uploads/sites/7/2020/05/10145719/2000X980_SALE_2.jpg);
+    background-size: cover;
+    background-position: bottom;
+}
+
+h1 {
+    /* יישור טקסט */
+    text-align: center;
+    /* צבע הטקסט */
+    color: white;
+}
+
+.frame {
+    /* רוחב */
+    width: 80%;
+    /* מקסימום רוחב */
+    max-width: 900px;
+    /* מינימום גובה */
+    min-height: 300px;
+    /* רקע */
+    background-color: #ffffffc9;
+    /* ריווח חיצוני אוטומטי (גורם למרכוס האלמנט) */
+    margin: auto;
+    /* ריווח פנימי של האלמנט */
+    padding: 8px 16px;
+    /* עיגול קצוות */
+    border-radius: 6px;
+    padding-bottom: 200px;
+}
+
+fieldset {
+    border: 5px groove #d77b52;
+    border-radius: 12px;
+    padding: 16px 24px;
+    margin: 16px 0;
+}
+
+legend {
+    font-weight: bold;
+}
+
+.field {
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+}
+
+.radioLabel {
+    display: inline-block;
+}
+
+input, select {
+    padding: 6px;
+    /* width: 300px; */
+    border: none;
+    border-bottom: 1px solid #673ab7;
+}
+
+input:focus,
+select:focus {
+    outline: 0;
+    border-bottom: 2px solid #673ab7;
+}
+
+textarea {
+    width: 100%;
+    height: 60px;
+}
