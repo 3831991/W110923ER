@@ -21,7 +21,7 @@ function minus() {
 function cityChange() {
     const city = document.getElementById("city").value;
 
-    if (city == "קרית ארבע") {
+    if (city == "3611") {
         document.getElementById("output1").innerHTML = "נכון מאוד";
     } else {
         document.getElementById("output1").innerHTML = "טעות..";
