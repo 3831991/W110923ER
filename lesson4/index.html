@@ -22,7 +22,7 @@
                 <h2>מה העיר הכי שווה?</h2>
 
                 <select id="city" oninput="cityChange()">
-                    <option></option>
+                    <option value="" disabled selected>בחר...</option>
                     <option value="7400">נתניה</option>
                     <option value="4000">קרית חיים</option>
                     <option value="4000">חיפה</option>
@@ -34,9 +34,19 @@
                     <option value="6500">חדרה</option>
                     <option value="502">ירכא</option>
                     <option value="1200">מודיעין</option>
+                    <option value="999">הוד השרון</option>
                 </select>
 
                 <span id="output1"></span>
+            </div>
+
+            <div class="task">
+                <h2>יש לקלוט שם משתמש (banana) וסיסמה (a123), ולכתוב הודעה בהתאם</h2>
+
+                <input type="text" id="username" placeholder="שם משתמש">
+                <input type="password" id="password" placeholder="סיסמה">
+                <button onclick="login()">התחברות</button>
+                <p id="output2"></p>
             </div>
         </div>
     </body>

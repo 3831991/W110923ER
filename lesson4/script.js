@@ -27,3 +27,14 @@ function cityChange() {
         document.getElementById("output1").innerHTML = "טעות..";
     }
 }
+
+function login() {
+    const un = document.getElementById("username").value;
+    const pw = document.getElementById("password").value;
+
+    if (un == "banana" && pw == "a123") {
+        document.getElementById("output2").innerHTML = "ההתחברות בוצעה בהצלחה";
+    } else {
+        document.getElementById("output2").innerHTML = "שם משתמש או סיסמה לא נכונים";
+    }
+}
