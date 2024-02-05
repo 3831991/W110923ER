@@ -44,6 +44,16 @@ function login() {
 
 function color() {
     const elem = document.getElementById("grade");
+
+    // אם הערך עבר את 100 איפסנו אותו
+    // אם הערך מתחת ל-0 הגדרנו אותו כ-100
+    // ע"מ לשמור על טווח בין 0 ל-100
+    if (elem.value > 100) {
+        elem.value = 0;
+    } else if (elem.value < 0) {
+        elem.value = 100;
+    }
+
     const num = Number(elem.value);
 
     if (num <= 40) {
