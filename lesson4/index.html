@@ -13,9 +13,31 @@
         <div class="frame">
 
             <div class="task">
-                
+                <button onclick="plus()">+</button>
+                <span id="count">1</span>
+                <button onclick="minus()">-</button>
             </div>
 
+            <div class="task">
+                <h2>מה העיר הכי שווה?</h2>
+
+                <select id="city" oninput="cityChange()">
+                    <option></option>
+                    <option>נתניה</option>
+                    <option>קרית חיים</option>
+                    <option>חיפה</option>
+                    <option>בית הלל</option>
+                    <option>נתיבות</option>
+                    <option>כפר חב"ד</option>
+                    <option>קרית ארבע</option>
+                    <option>מגדים</option>
+                    <option>חדרה</option>
+                    <option>ירכא</option>
+                    <option>מודיעין</option>
+                </select>
+
+                <span id="output1"></span>
+            </div>
         </div>
     </body>
 </html>
