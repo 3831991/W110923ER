@@ -31,10 +31,13 @@ function cityChange() {
 function login() {
     const un = document.getElementById("username").value;
     const pw = document.getElementById("password").value;
+    const output = document.getElementById("output2");
 
     if (un == "banana" && pw == "a123") {
-        document.getElementById("output2").innerHTML = "ההתחברות בוצעה בהצלחה";
+        output.innerHTML = "ההתחברות בוצעה בהצלחה";
+        output.style.color = "blue";
     } else {
-        document.getElementById("output2").innerHTML = "שם משתמש או סיסמה לא נכונים";
+        output.innerHTML = "שם משתמש או סיסמה לא נכונים";
+        output.style.color = "red";
     }
 }
