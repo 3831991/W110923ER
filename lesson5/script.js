@@ -14,3 +14,6 @@ function calcVat(num) {
     return `ללא מע"מ: ${num} | כולל מע"מ: ${num * 1.17}`;
 }
 
+function welcome(firstName, lastName) {
+    return `${firstName} ${lastName} ברוך הבא לאתר!`;
+}
