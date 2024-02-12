@@ -37,3 +37,18 @@ function task2(elem) {
         output.style.color = "green";
     }
 }
+
+function task3() {
+    const num = +document.getElementById("num1").value;
+    let result = '';
+
+    let i = 1;
+
+    while (i <= num) {
+        result += i + ', ';
+
+        i++;
+    }
+
+    document.getElementById("output3").innerHTML = result;
+}
