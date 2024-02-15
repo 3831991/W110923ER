@@ -104,3 +104,20 @@ function task7() {
 
     document.getElementById("output7").innerHTML = result;
 }
+
+function task8() {
+    const num = +document.getElementById("num7").value;
+    let result = '';
+    let calc = 1;
+
+    for (let i = 1; i <= num; i++) {
+        calc *= i;
+        result += i;
+
+        if (i !== num) {
+            result += ' x ';
+        }
+    }
+
+    document.getElementById("output8").innerHTML = `${result} = <b>${calc}</b>`;
+}
