@@ -56,3 +56,12 @@ function avg() {
     output.innerHTML = `<b>הממוצע הוא:</b> ${average}`;
 }
 
+function sortAsc() {
+    numbers.sort((a, b) => a - b);
+    div.innerHTML = numbers.join(', ');
+}
+
+function sortDesc() {
+    numbers.sort((a, b) => b - a);
+    div.innerHTML = numbers.join(', ');
+}
