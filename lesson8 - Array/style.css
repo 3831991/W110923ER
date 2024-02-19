@@ -45,6 +45,7 @@ button {
     padding: 8px 12px;
     border-radius: 6px;
     border: none;
+    margin: 6px;
 }
 
 button:hover {
@@ -61,4 +62,8 @@ input, select {
 .ltr {
     direction: ltr;
     display: inline-block;
+}
+
+#numbers {
+    padding-bottom: 16px;
 }
