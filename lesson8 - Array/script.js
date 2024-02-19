@@ -65,3 +65,21 @@ function sortDesc() {
     numbers.sort((a, b) => b - a);
     div.innerHTML = numbers.join(', ');
 }
+
+function leftStart() {
+    numbers.shift();
+    div.innerHTML = numbers.join(', ');
+}
+
+function leftEnd() {
+    numbers.pop();
+    div.innerHTML = numbers.join(', ');
+}
+
+function lines() {
+    div.innerHTML = numbers.join('<br>');
+}
+
+function inline() {
+    div.innerHTML = numbers.join(', ');
+}

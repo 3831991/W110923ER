@@ -22,13 +22,15 @@
                 <button onclick="avg()">ממוצע</button>
                 <button onclick="sortAsc()">מיון בסדר עולה</button>
                 <button onclick="sortDesc()">מיון בסדר יורד</button>
-                <button>הסרה מההתחלה</button>
-                <button>הסרה מהסוף</button>
+                <button onclick="leftStart()">הסרה מההתחלה</button>
+                <button onclick="leftEnd()">הסרה מהסוף</button>
+                <button onclick="lines()">שורות נפרדות</button>
+                <button onclick="inline()">בשורה אחת</button>
                 <button>הוספת מספר רנדומלי להתחלה</button>
                 <button>הוספת מספר רנדומלי לסוף</button>
-                <button>שורות נפרדות</button>
-                <button>בשורה אחת</button>
             </div>
+
+            <p id="output"></p>
 
             <div class="task">
                 <h2>אפשרות להוספת מספר</h2>
@@ -48,8 +50,6 @@
                 <input type="number">
                 <button>הסר</button>
             </div>
-
-            <p id="output"></p>
         </div>
     </body>
 </html>
