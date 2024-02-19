@@ -4,4 +4,5 @@ function changeColor(color) {
 
 function changeTitle(text) {
     document.querySelector('h1').innerHTML = text;
+    document.title = text;
 }
