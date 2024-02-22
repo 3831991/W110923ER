@@ -11,13 +11,32 @@ function add() {
 
     // יצירת אלמנט חדש
     const li = document.createElement('li');
-    // השמת התוכן של המשימה לאלמנט החדש
-    li.innerHTML = input.value;
-    // יצירת אירוע - כל לחיצה על האלמנט תפעיל את הפונקציה של המחיקה
-    li.addEventListener('click', removeTask);
 
     // הוספת האלמנט לתור הרשימה
     tasks.appendChild(li);
+
+    // השמת התוכן של המשימה לאלמנט החדש
+    const div = document.createElement('div');
+    div.innerHTML = input.value;
+
+    // מאפשרים למשתמש לערוך את התוכן של האלמנט
+    div.contentEditable = true;
+    li.appendChild(div);
+
+    // יצירת לחצן מחיקה
+    const btn = document.createElement('button');
+    btn.innerHTML = 'x';
+
+    // יצירת אירוע - כל לחיצה על הלחצן תפעיל את הפונקציה של המחיקה
+    btn.addEventListener('click', function() {
+        const isAllowed = confirm(`האם אתה בטוח כי ברצונך למחוק את ${div.innerHTML}?`);
+
+        if (isAllowed) {
+            li.remove();
+        }
+    });
+    li.appendChild(btn);
+
     // איפוס תיב הקלט
     input.value = '';
 }
@@ -26,14 +45,5 @@ function add() {
 function keyup(ev) {
     if (ev.key == 'Enter') {
         add();
-    }
-}
-
-// פונקציה למחיקת אלמנטים (מופעל בלחיצה על האלמנטים)
-function removeTask(ev) {
-    const isAllowed = confirm(`האם אתה בטוח כי ברצונך למחוק את ${ev.target.innerHTML}?`);
-
-    if (isAllowed) {
-        ev.target.remove();
     }
 }
