@@ -83,3 +83,19 @@ function lines() {
 function inline() {
     div.innerHTML = numbers.join(', ');
 }
+
+function addRandomToStart() {
+    const random = Math.random() * 1000;
+    const number = Math.floor(random);
+
+    numbers.unshift(number);
+    div.innerHTML = numbers.join(', ');
+}
+
+function addRandomToEnd() {
+    const random = Math.random() * 1000;
+    const number = Math.floor(random);
+
+    numbers.push(number);
+    div.innerHTML = numbers.join(', ');
+}
