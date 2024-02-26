@@ -44,6 +44,27 @@ h1 {
     justify-content: center;
     display: flex;
     border: 1px solid;
+    position: relative;
+}
+
+div::after {
+    content: attr(ziv);
+    background-color: coral;
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    white-space: nowrap;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #959595;
+}
+
+.board>div:hover {
+    background-color: #9f9f9f;
+}
+
+.board>div:hover::after {
+    display: block;
 }
 
 .board>div:nth-child(10n - 9),
