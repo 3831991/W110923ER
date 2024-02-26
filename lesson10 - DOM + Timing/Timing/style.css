@@ -60,6 +60,7 @@ input, select {
 }
 
 .circle {
+    cursor: pointer;
     width: 100px;
     height: 100px;
     background-color: #0098c7;
@@ -70,4 +71,9 @@ input, select {
     font-size: 24px;
     color: white;
     font-weight: bold;
+    transition: 0.3s;
+}
+
+.circle:hover {
+    scale: 1.1;
 }
