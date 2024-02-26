@@ -48,6 +48,7 @@ h1 {
 }
 
 div::after {
+    /* לוקח את התוכן שיש במאפיין שנקרא ziv */
     content: attr(ziv);
     background-color: coral;
     display: none;
