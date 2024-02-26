@@ -26,3 +26,27 @@ h1 {
     box-shadow: 0 0 4px #00000059;
     padding-bottom: 100px;
 }
+
+.board {
+    direction: ltr;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    max-width: 550px;
+    border: 1px solid;
+    margin: auto;
+    background-color: #c1c1c1;
+}
+
+.board>div {
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: 1px solid;
+}
+
+.board>div:nth-child(10n - 9),
+.board>div:nth-child(-n + 10) {
+    background-color: aquamarine;
+}
