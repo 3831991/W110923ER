@@ -77,3 +77,17 @@ input, select {
 .circle:hover {
     scale: 1.1;
 }
+
+.traffic-light {
+    background-color: black;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.traffic-light>div {
+    height: 50px;
+    width: 50px;
+    background-color: #c1c1c1;
+    margin: 8px;
+    border-radius: 50%;
+}
