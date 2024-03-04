@@ -36,6 +36,7 @@ function createClock() {
         clock.appendChild(div);
     }
 
+    clockMotion();
     setInterval(clockMotion, 1000);
 }
 
