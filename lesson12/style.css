@@ -66,6 +66,7 @@ input, select {
     border-radius: 50%;
     margin: auto;
     position: relative;
+    overflow: hidden;
 }
 
 #analog-clock>div {
@@ -77,4 +78,56 @@ input, select {
     line-height: 1;
     font-weight: bold;
     font-size: 10px;
+}
+
+#analog-clock>div>h2 {
+    font-size: 26px;
+}
+
+.hand {
+    position: relative;
+    z-index: 1;
+}
+
+.hand::after {
+    content: '';
+    display: block;
+    height: 45%;
+    margin: auto;
+    border-radius: 50% 50% 4px 4px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+}
+
+.hand.seconds:after {
+    width: 4px;
+    background-color: red;
+}
+
+.hand.minuts:after {
+    background-color: gray;
+    width: 8px;
+}
+
+.hand.hours:after {
+    width: 12px;
+    background-color: black;
+}
+
+.hand.seconds::before {
+    content: '';
+    display: block;
+    height: 20px;
+    width: 20px;
+    background-color: red;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 2;
+    margin: auto;
+    border-radius: 50%;
 }
