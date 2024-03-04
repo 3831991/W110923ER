@@ -131,3 +131,11 @@ input, select {
     margin: auto;
     border-radius: 50%;
 }
+
+#digital-clock {
+    direction: ltr;
+    text-align: center;
+    font-size: 30px;
+    font-family: monospace;
+    padding: 20px;
+}

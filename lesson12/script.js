@@ -1,6 +1,10 @@
-function createClock() {
-    const clock = document.querySelector("#analog-clock");
+const clock = document.querySelector("#analog-clock");
+const digital = document.querySelector("#digital-clock");
+const hours = document.querySelector(".hand.hours");
+const minuts = document.querySelector(".hand.minuts");
+const seconds = document.querySelector(".hand.seconds");
 
+function createClock() {
     for (let i = 0; i < 60; i++) {
         const div = document.createElement("div");
         div.innerHTML = '|';
@@ -30,5 +34,29 @@ function createClock() {
 
         div.style.rotate = `${i * 6}deg`;
         clock.appendChild(div);
+    }
+
+    setInterval(clockMotion, 1000);
+}
+
+function clockMotion() {
+    const now = new Date();
+
+    const h = now.getHours() % 12;
+    const m = now.getMinutes();
+    const s = now.getSeconds();
+
+    hours.style.rotate = `${h * 5 * 6 + (m / 2)}deg`;
+    minuts.style.rotate = `${(m * 6) + (s / 10)}deg`;
+    seconds.style.rotate = `${s * 6}deg`;
+
+    const _h = h < 10 ? '0' + h : h;
+    const _m = m < 10 ? '0' + m : m;
+    const _s = s < 10 ? '0' + s : s;
+
+    if (s % 2) {
+        digital.innerHTML = `${_h}:${_m}:${_s}`;
+    } else {
+        digital.innerHTML = `${_h} ${_m} ${_s}`;
     }
 }
