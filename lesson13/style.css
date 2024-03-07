@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600;700;900&display=swap');
 
 :root {
-    --bg: #ba8b00;
+    --bg: #282c34;
 }
 
 body {
-    direction: rtl;
+    /* direction: rtl; */
     font-family: 'Rubik', sans-serif;
     background-color: var(--bg);
 }
@@ -57,4 +57,30 @@ input, select {
     padding: 8px 12px;
     border-radius: 5px;
     margin-top: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+tr {
+    background-color: white;
+}
+
+thead tr {
+    background-color: #282c34;
+    color: #61dafb;
+}
+
+tr:nth-child(even) {
+    background-color: #d9d9d9;
+}
+
+th,
+td {
+    padding: 6px;
+    text-align: center;
+    white-space: nowrap;
 }
