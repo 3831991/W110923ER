@@ -6,10 +6,10 @@ for (const p of products) {
     tr.innerHTML = `
         <td>${p.id}</td>
         <td>${p.name}</td>
-        <td>${p.price}</td>
-        <td>${p.discount}</td>
+        <td style="font-size: ${p.price}px">${p.price}</td>
+        <td>${p.discount || 0}%</td>
         <td>${p.madeIn}</td>
-        <td>${p.color}</td>
+        <td style="background-color: ${p.color}">${p.color}</td>
     `;
 
     tbody.appendChild(tr);
