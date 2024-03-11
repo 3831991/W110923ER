@@ -35,6 +35,8 @@ body {
     margin-top: 50px;
     border-radius: 5px;
     box-shadow: 0 0 3px #b4b4b4;
+    padding: 16px;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -56,4 +58,10 @@ label {
 
 input {
     width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+input[type=color] {
+    padding: 0;
 }
