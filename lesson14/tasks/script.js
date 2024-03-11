@@ -26,26 +26,26 @@ function newTask() {
         if (isAllowed) {
             li.remove();
         }
+
+        saveTasks();
     });
 
     li.appendChild(btn);
 
-    div.addEventListener('input', function() {
-        const tasks = getAllTasks();
-        // localStorage.tasks = JSON.stringify(tasks);
-        // הכתיבה הנכונה, למרות שגם השורה מעל עובדת.
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-    });
+    div.addEventListener('input', saveTasks);
 }
 
-function getAllTasks() {
+function saveTasks() {
     const list = document.querySelectorAll('.tasks li');
     const arr = [];
 
     for (const li of list) {
-        const name = li.querySelector('div').innerText;
-        arr.push(name.trim());
+        const name = li.querySelector('div').innerText.trim();
+        
+        if (name) {
+            arr.push(name);
+        }
     }
 
-    return arr;
+    localStorage.setItem('tasks', JSON.stringify(arr));
 }
