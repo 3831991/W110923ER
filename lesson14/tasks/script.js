@@ -27,8 +27,6 @@ function newTask() {
             li.remove();
         }
     });
-    li.appendChild(btn);
 
-    // איפוס תיב הקלט
-    input.value = '';
+    li.appendChild(btn);
 }
