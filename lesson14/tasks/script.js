@@ -32,6 +32,9 @@ function newTask() {
 
     div.addEventListener('input', function() {
         const tasks = getAllTasks();
+        // localStorage.tasks = JSON.stringify(tasks);
+        // הכתיבה הנכונה, למרות שגם השורה מעל עובדת.
+        localStorage.setItem('tasks', JSON.stringify(tasks));
     });
 }
 
