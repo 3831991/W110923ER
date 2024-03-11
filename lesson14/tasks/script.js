@@ -29,4 +29,20 @@ function newTask() {
     });
 
     li.appendChild(btn);
+
+    div.addEventListener('input', function() {
+        const tasks = getAllTasks();
+    });
+}
+
+function getAllTasks() {
+    const list = document.querySelectorAll('.tasks li');
+    const arr = [];
+
+    for (const li of list) {
+        const name = li.querySelector('div').innerText;
+        arr.push(name.trim());
+    }
+
+    return arr;
 }
