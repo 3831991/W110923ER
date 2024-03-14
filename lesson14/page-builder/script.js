@@ -9,13 +9,9 @@ function paddingChange(elem) {
 }
 
 function pageToShow(id, elem) {
-    const actives = document.querySelectorAll('nav a.active');
-
-    for (const a of actives) {
-        a.classList.remove('active');
-    }
-
+    document.querySelector('nav a.active').classList.remove('active');
     elem.classList.add('active');
 
-    
+    document.querySelector('#panelSide>div.show').classList.remove('show');
+    document.getElementById(id).classList.add('show');
 }

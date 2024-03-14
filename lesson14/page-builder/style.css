@@ -22,6 +22,14 @@ body {
     padding: 3px;
 }
 
+#panelSide>div {
+    display: none;
+}
+
+#panelSide>div.show {
+    display: block;
+}
+
 #main {
     background-color: #e0e0e0;
     overflow-y: auto;
