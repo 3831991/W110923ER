@@ -32,13 +32,52 @@
                 <div id="elements">
                     <div class="field">
                         <label>סוג אלמנט</label>
-                        <select class="elementType">
+                        <select oninput="typeSelect(this)">
                             <option></option>
                             <option value="title">כותרת</option>
                             <option value="p">פסקה</option>
                             <option value="input">תיבת קלט</option>
                             <option value="button">לחצן</option>
                         </select>
+                    </div>
+
+                    <div id="params">
+                        <div id="headerType" class="field">
+                            <label>סוג כותרת</label>
+                            <select>
+                                <option>h1</option>
+                                <option>h2</option>
+                                <option>h3</option>
+                                <option>h4</option>
+                                <option>h5</option>
+                                <option>h6</option>
+                            </select>
+                        </div>
+    
+                        <div id="inputType" class="field">
+                            <label>סוג קלט</label>
+                            <select>
+                                <option value="text">טקסט</option>
+                                <option value="number">מספר</option>
+                                <option value="date">תאריך</option>
+                                <option value="time">שעה</option>
+                            </select>
+                        </div>
+    
+                        <div id="fontSize" class="field">
+                            <label>גודל הטקסט</label>
+                            <input type="number">
+                        </div>
+    
+                        <div id="color" class="field">
+                            <label>צבע טקסט</label>
+                            <input type="color">
+                        </div>
+                        
+                        <div id="content" class="field">
+                            <label>תוכן</label>
+                            <input type="text">
+                        </div>
                     </div>
                 </div>
             </div>
