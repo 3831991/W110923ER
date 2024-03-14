@@ -48,7 +48,7 @@ body {
     box-sizing: border-box;
 }
 
-h1 {
+#panelSide h1 {
     color: white;
     text-align: center;
 }
@@ -104,4 +104,20 @@ nav a:hover {
 
 #params>div.show {
     display: block;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 3px;
+    border: none;
+    display: block;
+    width: 60%;
+    font-size: 18px;
+    margin: 16px auto;
+}
+
+button:hover {
+    background-color: #5fc962;
 }
