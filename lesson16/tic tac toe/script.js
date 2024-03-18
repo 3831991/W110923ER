@@ -1,9 +1,16 @@
 const divs = document.querySelectorAll("#board>div");
+let isX = true;
 
 for (const div of divs) {
     div.addEventListener("click", function(ev) {
         const elem = ev.target;
 
-        elem.innerText = "X";
+        if (isX) {
+            elem.innerText = "X";
+        } else {
+            elem.innerText = "O";
+        }
+
+        isX = !isX;
     });
 }
