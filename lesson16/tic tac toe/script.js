@@ -2,7 +2,7 @@ const divs = document.querySelectorAll("#board>div");
 let isX = true;
 
 // לולאה העוברת על כל המשבצות
-for (const div of divs) {
+divs.forEach(div => {
     // הוספת פונקציה המופעלת בעת לחיצה על אחת המשבצות
     div.addEventListener("click", function(ev) {
         // האלמנט שעליו לחץ השחקן
@@ -24,7 +24,7 @@ for (const div of divs) {
         // הפעלת הפונקציה של המחווה הויזואלית
         showTurn();
     });
-}
+})
 
 /**
  * פונקציה הנותנת מחווה של איזה שחקן התור הנוכחי

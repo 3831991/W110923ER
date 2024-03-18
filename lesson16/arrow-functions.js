@@ -34,3 +34,16 @@ function fun6() {
 function fun7(x) {
     console.log(x);
 }
+
+
+// ********************************
+
+const colors = ["Red", "Green", "Blue"];
+
+// אופציה 1
+colors.forEach(function(c) {
+    console.log(c);
+});
+
+// אופציה 2
+colors.forEach(c => console.log(c));
