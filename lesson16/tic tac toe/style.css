@@ -23,6 +23,12 @@ h1 {
 
 #board>div {
     background-color: white;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
 }
 
 #players {
