@@ -2,6 +2,14 @@ const divs = document.querySelectorAll("#board>div");
 let isX = true;
 let isGameOver = false;
 
+const scores = {
+    x: localStorage.x ? Number(localStorage.x) : 0,
+    o: localStorage.o ? Number(localStorage.o) : 0,
+};
+
+document.querySelector("#x_score").innerText = scores.x;
+document.querySelector("#o_score").innerText = scores.o;
+
 // לולאה העוברת על כל המשבצות
 divs.forEach(div => {
     // הוספת פונקציה המופעלת בעת לחיצה על אחת המשבצות
@@ -64,10 +72,14 @@ function checkWinner() {
     for (const op of options) {
         // בודק את המיקומים של כל מערך
         if (op.every(x => divs[x].innerText === 'X')) {
+            scores.x++;
             winner(op, 'X');
+            document.querySelector("#x_score").innerText = scores.x;
             break;
         } else if (op.every(x => divs[x].innerText === 'O')) {
+            scores.o++;
             winner(op, 'O');
+            document.querySelector("#o_score").innerText = scores.o;
             break;
         } else if ([...divs].every(x => x.innerText)) {
             setTimeout(() => alert("אין מנצח"), 50);
@@ -83,4 +95,20 @@ function winner(op, win) {
     op.forEach(x => divs[x].classList.add('win'));
 
     isGameOver = true;
+
+    localStorage.x = scores.x;
+    localStorage.o = scores.o;
+    
+    // כשיש ניצחון, מאפשרים לשחקן המנצח להתחיל
+    isX = !isX;
+}
+
+function newGame() {
+    divs.forEach(div => {
+        div.innerText = '';
+        div.classList.remove('win');
+    });
+
+    isGameOver = false;
+    showTurn();
 }
