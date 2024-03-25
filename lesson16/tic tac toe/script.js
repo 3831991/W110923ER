@@ -5,7 +5,7 @@ let isGameOver = false;
 // לולאה העוברת על כל המשבצות
 divs.forEach(div => {
     // הוספת פונקציה המופעלת בעת לחיצה על אחת המשבצות
-    div.addEventListener("click", function(ev) {
+    div.addEventListener("click", ev => {
         if (isGameOver) {
             return;
         }
@@ -63,11 +63,15 @@ function checkWinner() {
     // רץ על המערך של כל האופציות
     for (const op of options) {
         // בודק את המיקומים של כל מערך
-        if (op.every(myIndex => divs[myIndex].innerText === 'X')) {
+        if (op.every(x => divs[x].innerText === 'X')) {
             winner(op, 'X');
             break;
-        } else if (op.every(myIndex => divs[myIndex].innerText === 'O')) {
+        } else if (op.every(x => divs[x].innerText === 'O')) {
             winner(op, 'O');
+            break;
+        } else if ([...divs].every(x => x.innerText)) {
+            setTimeout(() => alert("אין מנצח"), 50);
+            isGameOver = true;
             break;
         }
     }
