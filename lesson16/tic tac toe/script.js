@@ -81,11 +81,12 @@ function checkWinner() {
             winner(op, 'O');
             document.querySelector("#o_score").innerText = scores.o;
             break;
-        } else if ([...divs].every(x => x.innerText)) {
-            setTimeout(() => alert("אין מנצח"), 50);
-            isGameOver = true;
-            break;
         }
+    }
+
+    if (!isGameOver && [...divs].every(x => x.innerText)) {
+        setTimeout(() => alert("אין מנצח"), 50);
+        isGameOver = true;
     }
 }
 
