@@ -1,6 +1,8 @@
 const page = document.querySelector("#page");
 let type, params;
 
+restorePage();
+
 const elementSelect = {
     title: [
         'headerType',
@@ -27,10 +29,12 @@ const elementSelect = {
 
 function bgChange(elem) {
     page.style.backgroundColor = elem.value;
+    savePage();
 }
 
 function paddingChange(elem) {
     page.style.padding = elem.value + 'px';
+    savePage();
 }
 
 function pageToShow(id, elem) {
@@ -53,8 +57,8 @@ function typeSelect(selectElem) {
     }
 
     // הצגת האלמטים הנצרכים
-    for (const p of params) {
-        document.getElementById(p).classList.add('show');
+    for (const param of params) {
+        document.getElementById(param).classList.add('show');
     }
 }
 
@@ -75,14 +79,14 @@ function add() {
     const color = document.querySelector('#color input').value;
     const content = document.querySelector('#content input').value;
 
-    for (const p of params) {
-        if (p === 'inputType') {
-
-        } else if (p === 'fontSize') {
-            
-        } else if (p === 'color') {
-
-        } else if (p === 'content') {
+    for (const param of params) {
+        if (param === 'inputType') {
+            elem.type = inputType;
+        } else if (param === 'fontSize') {
+            elem.style.fontSize = fontSize + 'px';
+        } else if (param === 'color') {
+            elem.style.color = color;
+        } else if (param === 'content') {
             if (type === 'input') {
                 elem.value = content;
             } else {
@@ -92,4 +96,17 @@ function add() {
     }
 
     page.appendChild(elem);
+    savePage();
 }
+
+function savePage() {
+    localStorage.style = page.attributes.style?.value;
+    localStorage.page = page.innerHTML;
+}
+
+function restorePage() {
+    page.innerHTML = localStorage.page || '';
+    page.setAttribute('style', localStorage.style || '');
+}
+
+page.addEventListener('input', savePage);
