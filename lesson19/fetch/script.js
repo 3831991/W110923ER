@@ -18,3 +18,9 @@ function showContacts() {
             });
         });
 }
+
+// fetch("https://api.shipap.co.il/contact")
+// .then(res => res.json())
+// .then(data => {
+
+// });
