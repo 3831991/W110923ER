@@ -79,6 +79,7 @@ function getUserStatus() {
         }
     })
     .then(data => {
+        document.querySelector("#fullName").innerText = data.fullName;
         userElem.style.display = 'block';
     })
     .catch(err => {
