@@ -1,9 +1,14 @@
+const userElem = document.querySelector("#loggedin");
+const loginElem = document.querySelector("#login");
+
 function login(ev) {
     // מבטל את פעולת ברירת המחדל של הדפדפן
     // במקרה שלנו הוא מבטל את השליחה ומעבר לדף אחר
     ev.preventDefault();
 
     // קבילנו את האינפוטים
+    // const userName = ev.target.elements.userName;
+    // const password = ev.target.elements.password;
     const { userName, password } = ev.target.elements;
 
     // יצרנו אובייקט לצורך שליחה לשרת
@@ -38,11 +43,45 @@ function login(ev) {
     })
     // במקרה של הצלחה
     .then(data => {
-        alert(`ההתחברות של ${data.fullName} בוצעה בהצלחה!`);
-        ev.target.style.display = 'none';
+        document.querySelector("#fullName").innerText = data.fullName;
+        userElem.style.display = 'block';
+        loginElem.style.display = 'none';
     })
     // כשיש שגיאה
     .catch(err => {
-        console.log(err.message);
+        alert(err.message);
+    });
+}
+
+function logout() {
+    fetch(`https://api.shipap.co.il/logout`, {
+        credentials: 'include',
+    })
+    .then(res => {
+        if (res.ok) {
+            userElem.style.display = 'none';
+            loginElem.style.display = 'block';
+        }
+    });
+}
+
+function getUserStatus() {
+    fetch(`https://api.shipap.co.il/login`, {
+        credentials: 'include',
+    })
+    .then(res => {
+        if (res.ok) {
+            return res.json();
+        } else {
+            return res.text().then(x => {
+                throw new Error(x);
+            });
+        }
+    })
+    .then(data => {
+        userElem.style.display = 'block';
+    })
+    .catch(err => {
+        loginElem.style.display = 'block';
     });
 }

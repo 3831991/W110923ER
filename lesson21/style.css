@@ -5,6 +5,17 @@ body {
     padding-bottom: 200px;
 }
 
+header {
+    direction: rtl;
+    color: white;
+}
+
+header button {
+    background-color: #632020;
+    padding: 5px 6px;
+    margin-right: 6px;
+}
+
 * {
     font-family: 'Rubik', sans-serif !important;
 }
@@ -33,12 +44,15 @@ button {
     padding: 8px 12px;
     border-radius: 6px;
     border: none;
+}
+
+form button {
     width: 100%;
     margin-top: 24px;
 }
 
 button:hover {
-    background-color: #24348e;
+    background-color: #383c44;
 }
 
 input, select {
@@ -48,4 +62,9 @@ input, select {
     margin-top: 3px;
     width: 100%;
     box-sizing: border-box;
+}
+
+#loggedin,
+#login {
+    display: none;
 }
