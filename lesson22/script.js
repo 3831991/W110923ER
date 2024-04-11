@@ -18,10 +18,10 @@ function checkIsValid() {
         }
     })
     .then(x => {
-        setMessage("הפעולה בוצעה בהצלחה");
+        setMessage("הפעולה בוצעה בהצלחה", "blue");
     })
     .catch(x => {
-        setMessage("שגיאה בביצוע הפעולה");
+        setMessage("שגיאה בביצוע הפעולה", "red");
     })
     .finally(() => {
         console.log("הסתיימה הפעולה");
@@ -37,6 +37,9 @@ function stopLoader() {
     document.querySelector(".loader").style.display = "none";
 }
 
-function setMessage(message) {
-    document.querySelector("#message").innerText = message;
+function setMessage(message, color = "black") {
+    const elem = document.querySelector("#message");
+
+    elem.innerText = message;
+    elem.style.color = color;
 }
