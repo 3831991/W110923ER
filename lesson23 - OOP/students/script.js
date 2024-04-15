@@ -1,5 +1,14 @@
 class Student {
-    student; // אובייקט של הסטודנט
+    student = {
+        id: 0,
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        birthday: "",
+        city: "",
+        grades: []
+    }; // אובייקט של הסטודנט
 
     getFullName() {
         return `${this.student.firstName} ${this.student.lastName}`;
@@ -27,7 +36,13 @@ class Student {
     }
 
     constructor(student) {
-        this.student = student;
+        if (!student) {
+            throw new Error("Student not found");
+        }
+
+        for (const key in student) {
+            this.student[key] = student[key];
+        }
     }
 }
 
@@ -36,7 +51,7 @@ const student1 = new Student({
     firstName: "טליה",
     lastName: "אנקרי",
     phone: "059-7101369",
-    email: "abc487@gmail.com",
+    // email: "abc487@gmail.com",
     birthday: "2005-11-19",
     city: "חיפה",
     grades: [81, 87, 60]
