@@ -1,13 +1,8 @@
 class Student {
-    firstName = '';
-    lastName = '';
-    phone = '';
-    birthday = '';
-    city = '';
-    grades = [];
+    student; // אובייקט של הסטודנט
 
     getFullName() {
-        return `${this.firstName} ${this.lastName}`;
+        return `${this.student.firstName} ${this.student.lastName}`;
     }
 
     // גיל של הסטודנט (לא מדוייק)
@@ -15,19 +10,56 @@ class Student {
         // השנה הנוכחית
         const currentYear = new Date().getFullYear();
         // שנת הלידה של הסטודנט
-        const studentYear = new Date(this.birthday).getFullYear();
+        const studentYear = new Date(this.student.birthday).getFullYear();
 
         // גיל של הסטודנט (במספר)
         return currentYear - studentYear;
     }
 
     getAverageTest() {
-        const sum = this.grades.reduce((res, num) => res += num, 0);
+        const sum = this.student.grades.reduce((res, num) => res += num, 0);
 
-        return sum / this.grades.length;
+        return sum / this.student.grades.length;
     }
 
     getTestAmount() {
-        return this.grades.length;
+        return this.student.grades.length;
+    }
+
+    constructor(student) {
+        this.student = student;
     }
 }
+
+const student1 = new Student({
+    id: 9128,
+    firstName: "טליה",
+    lastName: "אנקרי",
+    phone: "059-7101369",
+    email: "abc487@gmail.com",
+    birthday: "2005-11-19",
+    city: "חיפה",
+    grades: [81, 87, 60]
+});
+
+(async function() {
+    const res = await fetch("../students.json");
+    const data = await res.json();
+    
+    const students = data.map(s => new Student(s));
+})()
+
+
+// // יצירת ציונים פיקטיביים לכל סטודנט
+// students.forEach(s => {
+//     s.grades = [];
+
+//     // טווח של 3 עד 8
+//     const max = Math.floor(Math.random() * 6) + 3;
+    
+//     for (let i = 0; i < max; i++) {
+//         // טווח של 40 עד 100
+//         const g = Math.floor(Math.random() * 61) + 40;
+//         s.grades.push(g);
+//     }
+// });
