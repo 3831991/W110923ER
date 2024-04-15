@@ -45,8 +45,10 @@ const student1 = new Student({
 (async function() {
     const res = await fetch("../students.json");
     const data = await res.json();
-    
+
     const students = data.map(s => new Student(s));
+
+    console.log(students);
 })()
 
 
