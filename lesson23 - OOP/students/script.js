@@ -46,26 +46,24 @@ class Student {
     }
 }
 
-const student1 = new Student({
-    id: 9128,
-    firstName: "טליה",
-    lastName: "אנקרי",
-    phone: "059-7101369",
-    // email: "abc487@gmail.com",
-    birthday: "2005-11-19",
-    city: "חיפה",
-    grades: [81, 87, 60]
-});
-
 (async function() {
     const res = await fetch("../students.json");
     const data = await res.json();
 
     const students = data.map(s => new Student(s));
-
-    console.log(students);
 })()
 
+// לדוגמא
+// const student1 = new Student({
+//     id: 9128,
+//     firstName: "טליה",
+//     lastName: "אנקרי",
+//     phone: "059-7101369",
+//     // email: "abc487@gmail.com",
+//     birthday: "2005-11-19",
+//     city: "חיפה",
+//     grades: [81, 87, 60]
+// });
 
 // // יצירת ציונים פיקטיביים לכל סטודנט
 // students.forEach(s => {
