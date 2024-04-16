@@ -50,7 +50,15 @@ class Student {
     const res = await fetch("../students.json");
     const data = await res.json();
 
-    const students = data.map(s => new Student(s));
+    const ul = document.createElement("ul");
+    document.querySelector(".frame").appendChild(ul);
+
+    data.forEach(s => {
+        const student = new Student(s);
+        const li = document.createElement("li");
+        li.innerText = student.getFullName();
+        ul.appendChild(li);
+    });
 })()
 
 // לדוגמא
