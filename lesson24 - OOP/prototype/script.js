@@ -5,3 +5,6 @@ Array.prototype.sum = function() {
 
 // [88, 99, 66, 55].sum();
 
+Array.prototype.avg = function() {
+    return Math.round(this.sum() / this.length);
+}
