@@ -29,4 +29,15 @@ h1 {
     padding: 8px 16px;
     border-radius: 6px;
     text-align: center;
+    display: grid;
+    color: white;
+}
+
+#board>div {
+    height: 30px;
+    width: 30px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
