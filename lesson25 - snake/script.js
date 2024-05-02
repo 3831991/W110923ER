@@ -26,3 +26,25 @@ function color() {
         divs[x].classList.add("snake");
     });
 }
+
+function move(dir) {
+    let head = snake[0];
+
+    if (dir === 'up') {
+        head -= width;
+
+    } else if (dir === 'down') {
+        head += width;
+        
+    } else if (dir === 'left') {
+        head++;
+
+    } else if (dir === 'right') {
+        head--;
+
+    }
+
+    snake.unshift(head);
+    snake.pop();
+    color();
+}
