@@ -35,7 +35,7 @@ function move(dir) {
 
     } else if (dir === 'down') {
         head += width;
-        
+
     } else if (dir === 'left') {
         head++;
 
@@ -48,3 +48,28 @@ function move(dir) {
     snake.pop();
     color();
 }
+
+window.addEventListener("keydown", ev => {
+    ev.preventDefault();
+
+    switch (ev.key) {
+        case "ArrowUp": move("up"); break;
+        case "ArrowRight": move("right"); break;
+        case "ArrowDown": move("down"); break;
+        case "ArrowLeft": move("left"); break;
+    }
+});
+
+// window.addEventListener("keydown", ev => {
+//     ev.preventDefault();
+
+//     if (ev.key === "ArrowUp") {
+//         move("up");
+//     } else if (ev.key === "ArrowRight") {
+//         move("right");
+//     } else if (ev.key === "ArrowDown") {
+//         move("down");
+//     } else if (ev.key === "ArrowLeft") {
+//         move("left");
+//     }
+// });
