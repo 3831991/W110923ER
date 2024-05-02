@@ -43,3 +43,8 @@ h1 {
 .snake {
     background-color: chartreuse;
 }
+
+.apple::after {
+    content: "🍎";
+    font-size: 11px;
+}
