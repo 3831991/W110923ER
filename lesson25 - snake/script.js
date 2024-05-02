@@ -1,15 +1,15 @@
 const board = document.querySelector("#board");
-const width = 30;
-const height = 30;
+const width = 50;
+const height = 40;
 const snake = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
 const divs = [];
+let direction = 'left';
 
 function createBoard() {
     board.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 
     for (let i = 0; i < width * height; i++) {
         const div = document.createElement("div");
-        div.innerText = i;
         board.appendChild(div);
         divs.push(div);
     }
@@ -31,19 +31,36 @@ function move(dir) {
     let head = snake[0];
 
     if (dir === 'up') {
+        if (direction === 'down') {
+            return;
+        }
+
         head -= width;
 
     } else if (dir === 'down') {
+        if (direction === 'up') {
+            return;
+        }
+
         head += width;
 
     } else if (dir === 'left') {
+        if (direction === 'right') {
+            return;
+        }
+
         head++;
 
     } else if (dir === 'right') {
+        if (direction === 'left') {
+            return;
+        }
+
         head--;
 
     }
 
+    direction = dir;
     snake.unshift(head);
     snake.pop();
     color();
