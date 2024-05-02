@@ -37,6 +37,11 @@ function move(dir) {
 
         head -= width;
 
+        // בדיקת גבולות - אם הנחש עומד לחרוג מה-0
+        if (head < 0) {
+            alert("Game over");
+            return;
+        }
     } else if (dir === 'down') {
         if (direction === 'up') {
             return;
@@ -44,6 +49,10 @@ function move(dir) {
 
         head += width;
 
+        if (head >= width * height) {
+            alert("Game over");
+            return;
+        }
     } else if (dir === 'left') {
         if (direction === 'right') {
             return;
@@ -51,13 +60,21 @@ function move(dir) {
 
         head++;
 
+        if (head % width === 0) {
+            alert("Game over");
+            return;
+        }
     } else if (dir === 'right') {
         if (direction === 'left') {
             return;
         }
 
-        head--;
+        if (head % width === 0) {
+            alert("Game over");
+            return;
+        }
 
+        head--;
     }
 
     direction = dir;
