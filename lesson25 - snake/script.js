@@ -1,5 +1,5 @@
 const board = document.querySelector("#board");
-const width = 50;
+const width = window.screen.width < 640 ? 20 : 40; // הרוחב בהתאם לרוחב המסך
 const height = 40;
 const snake = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
 const divs = [];
