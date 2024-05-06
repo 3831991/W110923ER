@@ -125,6 +125,7 @@ function gameOver() {
     isGameOver = true;
     clearInterval(interval);
     sound("./Country_Blues.ogg");
+    document.querySelector("#newGame").style.display = "initial";
     setTimeout(() => alert("Game over"), 50);
 }
 
@@ -144,6 +145,16 @@ function sound(fileName) {
     const audio = document.createElement('audio');
     audio.src = fileName;
     audio.play();
+}
+
+function newGame() {
+    snake.splice(0, snake.length);
+    snake.push(9, 8, 7, 6, 5, 4, 3, 2, 1, 0);
+    isGameOver = false;
+    score = 0;
+    color();
+    setApple();
+    document.querySelector("#newGame").style.display = "none";
 }
 
 window.addEventListener("keydown", ev => {
