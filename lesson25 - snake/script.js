@@ -105,6 +105,7 @@ function move(dir) {
     if (head === random) {
         score++;
         document.querySelector("#score span").innerText = score;
+        sound("./Pebble.ogg");
         setApple();
     } else {
         snake.pop();
@@ -123,7 +124,8 @@ function autoMove() {
 function gameOver() {
     isGameOver = true;
     clearInterval(interval);
-    alert("Game over");
+    sound("./Country_Blues.ogg");
+    setTimeout(() => alert("Game over"), 50);
 }
 
 function setApple() {
@@ -136,6 +138,12 @@ function setApple() {
     divs.forEach(d => d.classList.remove('apple'));
     // שם את הפיתיון במקום
     divs[random].classList.add("apple");
+}
+
+function sound(fileName) {
+    const audio = document.createElement('audio');
+    audio.src = fileName;
+    audio.play();
 }
 
 window.addEventListener("keydown", ev => {
