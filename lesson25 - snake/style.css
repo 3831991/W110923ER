@@ -55,3 +55,8 @@ h1 {
     content: "🍎";
     font-size: 11px;
 }
+
+#score {
+    font-size: 24px;
+    color: white;
+}

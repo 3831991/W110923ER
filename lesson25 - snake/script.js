@@ -6,6 +6,8 @@ const divs = [];
 let direction = 'left';
 let isGameOver = false;
 let interval;
+let random;
+let score = 0;
 
 function createBoard() {
     board.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
@@ -17,6 +19,7 @@ function createBoard() {
     }
 
     color();
+    setApple();
 }
 
 function color() {
@@ -96,20 +99,43 @@ function move(dir) {
 
     direction = dir;
     snake.unshift(head);
-    snake.pop();
+
+    // אם הראש החדש נוגע בפיתיון - אז שמים את הפיתיון במקום אחר
+    // ולא מורידים את סוף הנחש
+    if (head === random) {
+        score++;
+        document.querySelector("#score span").innerText = score;
+        setApple();
+    } else {
+        snake.pop();
+    }
+
     color();
     autoMove();
 }
 
 function autoMove() {
     clearInterval(interval);
-    interval = setInterval(() => move(direction), 200);
+    const speed = 300 - score;
+    interval = setInterval(() => move(direction), speed > 50 ? speed : 50);
 }
 
 function gameOver() {
     isGameOver = true;
     clearInterval(interval);
     alert("Game over");
+}
+
+function setApple() {
+    do {
+        // מגריל מספר לפי כמות המשבצות
+        random = Math.floor(Math.random() * width * height);
+    } while (snake.includes(random)) // אם המספר יוצא על מיקום הנחש - מגרילים שוב
+
+    // מנקה את הפיתיון מכל הלוח
+    divs.forEach(d => d.classList.remove('apple'));
+    // שם את הפיתיון במקום
+    divs[random].classList.add("apple");
 }
 
 window.addEventListener("keydown", ev => {
@@ -122,6 +148,7 @@ window.addEventListener("keydown", ev => {
         case "ArrowRight": move("right"); break;
         case "ArrowDown": move("down"); break;
         case "ArrowLeft": move("left"); break;
+        case "Escape": clearInterval(interval); break;
     }
 });
 
