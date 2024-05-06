@@ -4,6 +4,7 @@ const height = 40;
 const snake = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
 const divs = [];
 let direction = 'left';
+let interval;
 
 function createBoard() {
     board.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
@@ -18,12 +19,18 @@ function createBoard() {
 }
 
 function color() {
+    // מנקה את כל התאים מהנחש
     divs.forEach(div => {
-        div.classList.remove("snake");
+        div.classList.remove("snake", "head");
     });
 
-    snake.forEach(x => {
+    // שם את הנחש במיקום שלו
+    snake.forEach((x, i) => {
         divs[x].classList.add("snake");
+        
+        if (i === 0) {
+            divs[x].classList.add("head");
+        }
     });
 }
 
@@ -39,7 +46,7 @@ function move(dir) {
 
         // בדיקת גבולות - אם הנחש עומד לחרוג מה-0
         if (head < 0) {
-            alert("Game over");
+            gameOver();
             return;
         }
     } else if (dir === 'down') {
@@ -50,7 +57,7 @@ function move(dir) {
         head += width;
 
         if (head >= width * height) {
-            alert("Game over");
+            gameOver();
             return;
         }
     } else if (dir === 'left') {
@@ -61,7 +68,7 @@ function move(dir) {
         head++;
 
         if (head % width === 0) {
-            alert("Game over");
+            gameOver();
             return;
         }
     } else if (dir === 'right') {
@@ -70,7 +77,7 @@ function move(dir) {
         }
 
         if (head % width === 0) {
-            alert("Game over");
+            gameOver();
             return;
         }
 
@@ -81,9 +88,22 @@ function move(dir) {
     snake.unshift(head);
     snake.pop();
     color();
+    autoMove();
+}
+
+function autoMove() {
+    clearInterval(interval);
+    interval = setInterval(() => move(direction), 200);
+}
+
+function gameOver() {
+    clearInterval(interval);
+    alert("Game over");
 }
 
 window.addEventListener("keydown", ev => {
+    // מבטל את פעול ברירת המחדל של המקשים
+    // (במקרה שלנו זה מבטל את הגלילה של הדף באמצעות החצים)
     ev.preventDefault();
 
     switch (ev.key) {

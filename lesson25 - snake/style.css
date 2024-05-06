@@ -42,6 +42,13 @@ h1 {
 
 .snake {
     background-color: chartreuse;
+    border-radius: 50%;
+}
+
+.snake.head {
+    background-color: #000000;
+    border: 2px solid chartreuse;
+    box-sizing: border-box;
 }
 
 .apple::after {
