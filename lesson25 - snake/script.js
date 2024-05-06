@@ -4,6 +4,7 @@ const height = 40;
 const snake = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
 const divs = [];
 let direction = 'left';
+let isGameOver = false;
 let interval;
 
 function createBoard() {
@@ -35,6 +36,10 @@ function color() {
 }
 
 function move(dir) {
+    if (isGameOver) {
+        return;
+    }
+
     let head = snake[0];
 
     if (dir === 'up') {
@@ -84,6 +89,11 @@ function move(dir) {
         head--;
     }
 
+    if (snake.includes(head)) {
+        gameOver();
+        return;
+    }
+
     direction = dir;
     snake.unshift(head);
     snake.pop();
@@ -97,6 +107,7 @@ function autoMove() {
 }
 
 function gameOver() {
+    isGameOver = true;
     clearInterval(interval);
     alert("Game over");
 }
